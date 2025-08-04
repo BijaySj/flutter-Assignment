@@ -37,7 +37,7 @@ class WeatherPage extends StatelessWidget {
               flex: 2,
               child: Container(
                 padding: const EdgeInsets.all(20),
-                color: Theme.of(context).colorScheme.background,
+                color: Theme.of(context).colorScheme.surface,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -110,7 +110,7 @@ class WeatherPage extends StatelessWidget {
               flex: 1,
               child: Container(
                 padding: const EdgeInsets.all(20),
-                color: Theme.of(context).colorScheme.surfaceVariant,
+                color: Theme.of(context).colorScheme.surfaceContainerHighest,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
