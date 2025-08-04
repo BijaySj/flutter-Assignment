@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
-
 void main() {
   runApp(MyApp());
 }
@@ -18,17 +17,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // Wrap the whole app with MultiProvider & MultiBlocProvider
     return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => CounterProvider()),
-      ],
+      providers: [ChangeNotifierProvider(create: (_) => CounterProvider())],
       child: MultiBlocProvider(
-        providers: [
-          BlocProvider(create: (_) => CounterBloc()),
-        ],
-        child: MaterialApp(
-          title: 'Provider & BLoC Counters',
-          home: HomePage(),
-        ),
+        providers: [BlocProvider(create: (_) => CounterBloc())],
+        child: MaterialApp(title: 'Provider & BLoC Counters', home: HomePage()),
       ),
     );
   }
@@ -40,9 +32,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Choose Counter Type'),
-      ),
+      appBar: AppBar(title: Text('Choose Counter Type')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -51,17 +41,19 @@ class HomePage extends StatelessWidget {
               child: Text('Provider Counter (Increment Only)'),
               onPressed: () {
                 Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (_) => ProviderCounterPage()));
+                  context,
+                  MaterialPageRoute(builder: (_) => ProviderCounterPage()),
+                );
               },
             ),
             SizedBox(height: 20),
             ElevatedButton(
               child: Text('BLoC Counter (Increment & Decrement)'),
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (_) => BlocCounterPage()));
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => BlocCounterPage()),
+                );
               },
             ),
           ],

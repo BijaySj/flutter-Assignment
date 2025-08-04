@@ -1,8 +1,7 @@
-import 'package:event_app/features/login/signin_screen.dart';
-import 'package:event_app/features/weather_page.dart';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
+import 'package:weather/features/login/signin_screen.dart';
+import 'package:weather/features/weather/weather_page.dart';
 
 // import 'package:todo_app/home/dashboard.dart';
 

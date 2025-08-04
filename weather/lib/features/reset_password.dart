@@ -1,8 +1,9 @@
-import 'package:event_app/reusable_widgets/reusable_widget.dart';
-import 'package:event_app/utils/color_utils.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
+import 'package:weather/resuable_widgets/reusable_widget.dart';
+import 'package:weather/utils/color_utils.dart';
 
 class ResetPassword extends StatefulWidget {
   const ResetPassword({super.key});

@@ -13,31 +13,44 @@ class BlocCounterPage extends StatelessWidget {
     final counterBloc = BlocProvider.of<CounterBloc>(context);
 
     return Scaffold(
-      appBar: AppBar(title: Text('BLoC Counter (Increment & Decrement)')),
+      backgroundColor: const Color(0xFFF3F4F6),
+      appBar: AppBar(
+        title: const Text('BLoC Counter'),
+        backgroundColor: Colors.teal,
+        elevation: 2,
+        centerTitle: true,
+      ),
       body: Center(
         child: BlocBuilder<CounterBloc, CounterState>(
           builder: (context, state) {
             return Text(
-              'Counter: ${state.counter}',
-              style: TextStyle(fontSize: 40),
+              'Counter\n${state.counter}',
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 48,
+                fontWeight: FontWeight.bold,
+                color: Colors.indigo,
+              ),
             );
           },
         ),
       ),
       floatingActionButton: Padding(
-        padding: const EdgeInsets.only(left:30.0),
+        padding: const EdgeInsets.only(left: 32.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             FloatingActionButton(
               heroTag: 'decrement',
               onPressed: () => counterBloc.add(DecrementCounter()),
-              child: Icon(Icons.remove),
+              backgroundColor: Colors.redAccent,
+              child: const Icon(Icons.remove),
             ),
             FloatingActionButton(
               heroTag: 'increment',
               onPressed: () => counterBloc.add(IncrementCounter()),
-              child: Icon(Icons.add),
+              backgroundColor: Colors.green,
+              child: const Icon(Icons.add),
             ),
           ],
         ),

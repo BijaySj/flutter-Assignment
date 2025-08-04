@@ -1,10 +1,10 @@
-import 'package:event_app/features/login/register/signup_screen.dart';
-import 'package:event_app/features/reset_password.dart';
-import 'package:event_app/features/weather_page.dart';
-import 'package:event_app/reusable_widgets/reusable_widget.dart';
-import 'package:event_app/utils/color_utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:weather/features/login/register/signup_screen.dart';
+import 'package:weather/features/reset_password.dart';
+import 'package:weather/features/weather/weather_page.dart';
+import 'package:weather/resuable_widgets/reusable_widget.dart';
+import 'package:weather/utils/color_utils.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -69,9 +69,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       .then((value) {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
-                            builder: (context) => WeatherPage(),
-                          ),
+                          MaterialPageRoute(builder: (context) => WeatherPage()),
                         );
                       })
                       .onError((error, stackTrace) {

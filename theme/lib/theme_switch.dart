@@ -13,22 +13,49 @@ class _ThemeSwitcherPageState extends State<ThemeSwitcherPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Theme Switcher')),
-      body: Center(
-        child: AnimatedContainer(
-          duration: Duration(seconds: 1),
-          color: isDark ? Colors.black : Colors.white,
-          width: double.infinity,
-          height: double.infinity,
-          child: Center(
-            child: Switch(
-              value: isDark,
-              onChanged: (value) {
-                setState(() {
-                  isDark = value;
-                });
-              },
-            ),
+      backgroundColor: Colors.transparent,
+      body: AnimatedContainer(
+        duration: const Duration(milliseconds: 500),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: isDark
+                ? [Colors.grey.shade900, Colors.black]
+                : [Colors.blue.shade100, Colors.white],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
+        child: SafeArea(
+          child: Column(
+            children: [
+              const SizedBox(height: 40),
+              Text(
+                isDark ? "Dark Mode" : "Light Mode",
+                style: TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                  color: isDark ? Colors.white : Colors.black87,
+                ),
+              ),
+              const SizedBox(height: 20),
+              Icon(
+                isDark ? Icons.dark_mode : Icons.light_mode,
+                size: 100,
+                color: isDark ? Colors.amberAccent : Colors.blueAccent,
+              ),
+              const SizedBox(height: 30),
+              Switch(
+                activeColor: Colors.amber,
+                inactiveThumbColor: Colors.blue,
+                inactiveTrackColor: Colors.blue.shade200,
+                value: isDark,
+                onChanged: (value) {
+                  setState(() {
+                    isDark = value;
+                  });
+                },
+              ),
+            ],
           ),
         ),
       ),

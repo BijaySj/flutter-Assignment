@@ -1,10 +1,9 @@
-import 'package:event_app/features/weather_page.dart';
-
-import 'package:event_app/reusable_widgets/reusable_widget.dart';
-import 'package:event_app/utils/color_utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
+import 'package:weather/features/weather/weather_page.dart';
+import 'package:weather/resuable_widgets/reusable_widget.dart';
+import 'package:weather/utils/color_utils.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -82,9 +81,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         Navigator.push(
                           // ignore: use_build_context_synchronously
                           context,
-                          MaterialPageRoute(
-                            builder: (context) => WeatherPage(),
-                          ),
+                          MaterialPageRoute(builder: (context) => WeatherPage()),
                         );
                       })
                       .onError((error, stackTrace) {

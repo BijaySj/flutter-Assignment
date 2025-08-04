@@ -78,12 +78,11 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions windows = FirebaseOptions(
     apiKey: 'AIzaSyAVB1rTCGtAExlsWrSbNMO0R5xX155oQ8Q',
-    appId: '1:297892598726:web:1d789357db42efd41258c7',
+    appId: '1:297892598726:web:9ba23a3f5dba92bc1258c7',
     messagingSenderId: '297892598726',
     projectId: 'weather-de8ff',
     authDomain: 'weather-de8ff.firebaseapp.com',
     storageBucket: 'weather-de8ff.firebasestorage.app',
-    measurementId: 'G-8HNMT1WBYK',
+    measurementId: 'G-5YHDXMYPZF',
   );
-
 }

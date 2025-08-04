@@ -12,7 +12,6 @@ class ImagePickerPage extends StatefulWidget {
 
 class _ImagePickerPageState extends State<ImagePickerPage> {
   File? _image;
-
   final picker = ImagePicker();
 
   Future<void> pickImage(ImageSource source) async {
@@ -28,23 +27,75 @@ class _ImagePickerPageState extends State<ImagePickerPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Image Picker')),
-      body: Center(
+      appBar: AppBar(
+        title: const Text('Image Picker'),
+        backgroundColor: Colors.deepPurple,
+      ),
+      body: Container(
+        width: double.infinity,
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.deepPurple, Colors.indigo],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
+        padding: const EdgeInsets.all(24),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             _image == null
-                ? Text('No image selected.')
-                : Image.file(_image!, width: 200),
-            SizedBox(height: 20),
-            ElevatedButton(
+                ? const Text(
+                    'No image selected.',
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  )
+                : Container(
+                    width: 200,
+                    height: 200,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.black38,
+                          blurRadius: 8,
+                          offset: Offset(0, 4),
+                        ),
+                      ],
+                      image: DecorationImage(
+                        image: FileImage(_image!),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+            const SizedBox(height: 30),
+            ElevatedButton.icon(
               onPressed: () => pickImage(ImageSource.camera),
-              child: Text('Pick from Camera'),
+              icon: const Icon(Icons.camera_alt),
+              label: const Text('Capture Image'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.orangeAccent,
+                foregroundColor: Colors.black,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 24,
+                  vertical: 12,
+                ),
+                textStyle: const TextStyle(fontSize: 16),
+              ),
             ),
-            SizedBox(height: 10),
-            ElevatedButton(
+            const SizedBox(height: 15),
+            ElevatedButton.icon(
               onPressed: () => pickImage(ImageSource.gallery),
-              child: Text('Pick from Gallery'),
+              icon: const Icon(Icons.photo_library),
+              label: const Text('Select from Gallery'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.lightBlueAccent,
+                foregroundColor: Colors.black,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 24,
+                  vertical: 12,
+                ),
+                textStyle: const TextStyle(fontSize: 16),
+              ),
             ),
           ],
         ),
